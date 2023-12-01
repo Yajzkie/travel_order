@@ -31,19 +31,24 @@
             <table class="table table-hover">
               <thead>
                 <tr>
-                  <th>travel no</th>
-                  <th>user</th>
+                  <th>travel no</th>         
+                  <th>Employees</th>
+                  <th>Objective</th>
                   <th>date</th>
                   <th>action</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>jay</td>
-                  <td class="text-danger"> dec 25 2023</td>
-                  <td><label class="badge badge-danger">view </label><label class="badge badge-primary">print </label></td>
-                </tr>
+                 @if(isset($travel_orders))
+                    @foreach($travel_orders as $travel_order)
+                        <tr>
+                            <td>{{ $travel_order-> id }}</td>                         
+                            <td>{{ $travel_order-> emp }}</td>
+                            <td>{{ $travel_order-> objective }}</td>
+                            <td>{{ $travel_order-> date }}</td>
+                        </tr>
+                    @endforeach
+                @endif
               <!--   <tr>
                   <td>Messsy</td>
                   <td>Flash</td>

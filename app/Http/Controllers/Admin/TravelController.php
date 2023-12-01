@@ -4,15 +4,18 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Travel_orders;
+use App\Models\Travel_order;
 
 class TravelController extends Controller
 {
     public function index()
     {
+        $travel_orders = travel_order::OrderBy('id', 'ASC')
+                    ->paginate(10);
     	return view('admin.travel.index',[
-    		'pagetitle' => 'travel order',
-    		'title' => 'Order | Admin'
+    		'pagetitle' => 'Travel Order',
+    		'title' => 'Order | Admin',
+            'travel_orders' => $travel_orders
     	]);
     }
     public function create()
@@ -24,15 +27,15 @@ class TravelController extends Controller
     }
     public function store(Request $request)
     {
-        $savetravel_orders = new Travel_orders;
-        $savetravel_orders->emp = $request->emp;
-        $savetravel_orders->travel_purpose = $request->travel_purpose;
-        $savetravel_orders->place = $request->place;
-        $savetravel_orders->date  = $request->date;
-        $savetravel_orders->objective  = $request->objective;
-        $savetravel_orders->funds  = $request->funds;
+        $savetravel_order = new Travel_order;
+        $savetravel_order->emp = $request->emp;
+        $savetravel_order->travel_purpose = $request->travel_purpose;
+        $savetravel_order->place = $request->place;
+        $savetravel_order->date  = $request->date;
+        $savetravel_order->objective  = $request->objective;
+        $savetravel_order->funds  = $request->funds;
          
-        if ($savetravel_orders->save()) {
+        if ($savetravel_order->save()) {
             return redirect()->back();
         }
     }

@@ -3,7 +3,7 @@
     <li class="nav-item nav-profile">
       <a href="#" class="nav-link">
         <div class="nav-profile-image">
-          <img src="assets/images/faces/face1.jpg" alt="profile">
+          <img src="myassets/images/faces/face1.jpg" alt="profile">
           <span class="login-status online"></span>
           <!--change to offline or busy as needed-->
         </div>
@@ -22,14 +22,21 @@
     </li>
      <li class="nav-item">
       <a class="nav-link" href="{{ route('travel.index') }}">
-        <span class="menu-title">travel order</span>
-        <i class="mdi mdi-library-travel menu-icon"></i>
+        <span class="menu-title">Travel Orders</span>
+        <i class="mdi mdi-library-books menu-icon"></i>
       </a>
     </li>
-     <li class="nav-item">
+    <li class="nav-item">
       <a class="nav-link" href="{{ route('employee.index') }}">
-        <span class="menu-title">add employee</span>
-        <i class="mdi mdi-library-travel menu-icon"></i>
+        <span class="menu-title">Employees</span>
+        <i class="bi bi-person-add menu-icon"></i>
       </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{ route('position.index') }}">
+        <span class="menu-title">Positions</span>
+        <i class="bi bi-person-add menu-icon"></i>
+      </a>
+    </li>
   </ul>
 </nav>
