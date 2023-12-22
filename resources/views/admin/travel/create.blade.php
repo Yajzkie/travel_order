@@ -25,7 +25,13 @@
                   @csrf
                   <div class="form-group">
                     <label for="emp">TO:</label>
-                    <input type="text" name="emp" class="form-control" id="emp" >
+                    <select name="emp" id="emp" class="form-control text-dark">
+                        @if($employees = App\Models\Employee::get())
+                          @foreach($employees as $employee)
+                                <option value="{{ $employee->name }}">{{ $employee->name }}</option>
+                          @endforeach
+                        @endif
+                    </select>
                   </div>
                    <div class="form-group">
                     <label for="travel_purpose">Travel is on:</label>
@@ -37,7 +43,7 @@
                     </select>
                   </div>
                   <div class="form-group">
-                    <label for="place">destination:</label>
+                    <label for="place">Destination:</label>
                     <input type="text" name="place" class="col-xs-12" id="place">
                   </div>
                   <div class="form-group">

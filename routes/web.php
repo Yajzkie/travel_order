@@ -45,3 +45,9 @@ Route::prefix('employee')->middleware(['auth'])->group(function(){
 	Route::get('/create', [App\Http\Controllers\Admin\EmployeeController::class, 'create'])->name('employee.create');
 	Route::post('/store', [App\Http\Controllers\Admin\EmployeeController::class, 'store'])->name('employee.store');
 });
+
+Route::prefix('position')->middleware(['auth'])->group(function(){
+	Route::get('/', [App\Http\Controllers\Admin\PositionController::class, 'index'])->name('position.index');
+	Route::get('/create', [App\Http\Controllers\Admin\PositionController::class, 'create'])->name('position.create');
+	Route::post('/store', [App\Http\Controllers\Admin\PositionController::class, 'store'])->name('position.store');
+});
