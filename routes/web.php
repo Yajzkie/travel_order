@@ -33,6 +33,7 @@ Route::prefix('dashboard')->middleware(['auth'])->group(function(){
 
 Route::prefix('travel')->middleware(['auth'])->group(function(){
 	Route::get('/', [App\Http\Controllers\Admin\TravelController::class, 'index'])->name('travel.index');
+	Route::get('/view/{id}', [App\Http\Controllers\Admin\TravelController::class, 'view'])->name('travel.view');
 	Route::get('/create', [App\Http\Controllers\Admin\TravelController::class, 'create'])->name('travel.create');
 	Route::post('/store', [App\Http\Controllers\Admin\TravelController::class, 'store'])->name('travel.store');
 

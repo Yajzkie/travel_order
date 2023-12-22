@@ -38,36 +38,16 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>jay</td>
-                  <td class="text-danger"> dec 25 2023</td>
-                  <td><label class="badge badge-danger">view </label><label class="badge badge-primary">print </label></td>
-                </tr>
-              <!--   <tr>
-                  <td>Messsy</td>
-                  <td>Flash</td>
-                  <td class="text-danger"> 21.06% <i class="mdi mdi-arrow-down"></i></td>
-                  <td><label class="badge badge-warning">In progress</label></td>
-                </tr>
-                <tr>
-                  <td>John</td>
-                  <td>Premier</td>
-                  <td class="text-danger"> 35.00% <i class="mdi mdi-arrow-down"></i></td>
-                  <td><label class="badge badge-info">Fixed</label></td>
-                </tr>
-                <tr>
-                  <td>Peter</td>
-                  <td>After effects</td>
-                  <td class="text-success"> 82.00% <i class="mdi mdi-arrow-up"></i></td>
-                  <td><label class="badge badge-success">Completed</label></td>
-                </tr>
-                <tr>
-                  <td>Dave</td>
-                  <td>53275535</td>
-                  <td class="text-success"> 98.05% <i class="mdi mdi-arrow-up"></i></td>
-                  <td><label class="badge badge-warning">In progress</label></td>
-                </tr> -->
+                    @if(isset($travel_orders))
+                        @foreach($travel_orders as $value)
+                            <tr>
+                                <td>{{ $value['id']}}</td>
+                                <td>{{ $value['emp']}}</td>
+                                <td>{{ $value['date']}}</td>
+                                <td><a href="{{ route('travel.view', $value['id']) }}" class="btn btn-info btn-sm">View</a></td>
+                            </tr>
+                        @endforeach
+                    @endif
               </tbody>
             </table>
           </div>

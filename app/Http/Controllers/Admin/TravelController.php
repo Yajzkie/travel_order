@@ -10,11 +10,25 @@ class TravelController extends Controller
 {
     public function index()
     {
+        $travel_orders=Travel_orders::OrderBy('id','asc')
+                                    ->paginate(10);
     	return view('admin.travel.index',[
     		'pagetitle' => 'travel order',
-    		'title' => 'Order | Admin'
+    		'title' => 'Order | Admin',
+            'travel_orders' => $travel_orders
     	]);
     }
+
+    public function view(Request $request)
+    {
+        $travel_orders=Travel_orders::OrderBy('where id = request');
+        return view('admin.travel.index',[
+            'pagetitle' => 'travel order',
+            'title' => 'Order | Admin',
+            'travel_orders' => $travel_orders
+        ]);
+    }
+
     public function create()
     {
     	return view('admin.travel.create',[
